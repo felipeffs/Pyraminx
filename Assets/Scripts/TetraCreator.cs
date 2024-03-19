@@ -1,11 +1,15 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-[RequireComponent(typeof(MeshCollider))]
-[RequireComponent(typeof(MeshFilter))]
-[RequireComponent(typeof(MeshRenderer))]
-
-public class CreateTetra : MonoBehaviour
+[SelectionBase]
+public class TetraCreator : MonoBehaviour
 {
+    GameObject _createdTetra;
+    Type[] _requiredComponentTypes = { typeof(MeshCollider), typeof(MeshFilter), typeof(MeshRenderer) };
+    MeshRenderer _meshRenderer;
+    MeshFilter _meshFilter;
+    [SerializeField] private Material _baseMaterial;
+
     public bool sharedVertices = false;
 
     Vector3 p0 = new Vector3(0, 0, 0);
@@ -16,31 +20,33 @@ public class CreateTetra : MonoBehaviour
 
     public Vector3[] getVectors()
     {
-
         Vector3[] vertex = new Vector3[] { p0, p1, p2, p3 };
         return vertex;
-
     }
 
     public void Rebuild()
     {
-        MeshFilter meshFilter = GetComponent<MeshFilter>();
-        if (meshFilter == null)
+        _createdTetra = new GameObject("Tetra", _requiredComponentTypes);
+
+        _createdTetra.transform.parent = transform;
+        _createdTetra.transform.localRotation = Quaternion.identity;
+        _createdTetra.transform.localPosition = new Vector3(-0.5f, 0, 0);
+
+        _meshRenderer = _createdTetra.GetComponent<MeshRenderer>();
+        _meshRenderer.material = _baseMaterial;
+
+        _meshFilter = _createdTetra.GetComponent<MeshFilter>();
+        if (_meshFilter == null)
         {
             Debug.LogError("MeshFilter not found!");
             return;
         }
 
-        //Vector3 p0 = new Vector3(0, 0, 0);
-        //Vector3 p1 = new Vector3(1, 0, 0);
-        //Vector3 p2 = new Vector3(0.5f, 0, Mathf.Sqrt(0.75f));
-        //Vector3 p3 = new Vector3(0.5f, Mathf.Sqrt(0.75f), Mathf.Sqrt(0.75f) / 3);
-
-        mesh = meshFilter.sharedMesh;
+        mesh = _meshFilter.sharedMesh;
         if (mesh == null)
         {
-            meshFilter.mesh = new Mesh();
-            mesh = meshFilter.sharedMesh;
+            _meshFilter.mesh = new Mesh();
+            mesh = _meshFilter.sharedMesh;
         }
         mesh.Clear();
         if (sharedVertices)
@@ -109,19 +115,17 @@ public class CreateTetra : MonoBehaviour
 
         mesh.RecalculateNormals();
         mesh.RecalculateBounds();
-        //mesh.Optimize();
     }
 
-    // Use this for initialization
-    void Start()
+    public GameObject GetTetra()
     {
+        return _createdTetra;
+    }
+
+    public TetraCreator Build(string name = "Tetra")
+    {
+        gameObject.name = name;
         Rebuild();
-        //Rebuild();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        return this;
     }
 }

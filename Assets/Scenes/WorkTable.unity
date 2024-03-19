@@ -278,7 +278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tetrahedronPrefab: {fileID: 613173527416463963, guid: 0b40b460799601f4eb576d3b53930192,
     type: 3}
-  vetGameObj:
+  vetTetrahedron:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
