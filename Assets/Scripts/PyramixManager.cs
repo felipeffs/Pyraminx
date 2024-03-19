@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class manager : MonoBehaviour
+public class PyramixManager : MonoBehaviour
 {
-
     public GameObject tetrahedronPrefab;
     public GameObject[] vetTetrahedron = new GameObject[24];
 

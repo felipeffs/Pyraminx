@@ -1,14 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(MeshCollider))]
 [RequireComponent(typeof(MeshFilter))]
 [RequireComponent(typeof(MeshRenderer))]
 
-public class createTetra : MonoBehaviour {
-
-
+public class CreateTetra : MonoBehaviour
+{
     public bool sharedVertices = false;
 
     Vector3 p0 = new Vector3(0, 0, 0);
@@ -116,13 +113,15 @@ public class createTetra : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
         Rebuild();
         //Rebuild();
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 }
