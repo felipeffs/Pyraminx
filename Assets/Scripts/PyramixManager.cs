@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PyramixManager : MonoBehaviour
 {
@@ -36,7 +34,6 @@ public class PyramixManager : MonoBehaviour
         // Topo
         vetTetrahedron[5].transform.SetPositionAndRotation(new Vector3(.5f, .86603f, .29f), Quaternion.identity);
         vetTetrahedron[10].transform.SetPositionAndRotation(new Vector3(1.5f, .86603f, .29f), Quaternion.identity);
-
 
         // Lateral Esquerda
 
@@ -74,16 +71,23 @@ public class PyramixManager : MonoBehaviour
         tetra16Transform.localPosition = new Vector3(-.866025f, 0, .011f);
         tetra16Transform.localRotation = Quaternion.Euler(new Vector3(0, 30f, 0));
 
-    }
+        vetTetrahedron[17].transform.SetPositionAndRotation(new Vector3(1.244f, .865f, 1.596f), Quaternion.Euler(new Vector3(180, -30, -36.995f)));
+        var tetra17Transform = vetTetrahedron[17].GetTetra().transform;
+        tetra17Transform.localPosition = new Vector3(-.866025f, 0, .011f);
+        tetra17Transform.localRotation = Quaternion.Euler(new Vector3(0, 30f, 0));
 
-    private void ChangeRotationAndRotation(GameObject gameObject, Vector3 newPosition)
-    {
-        ChangeRotationAndRotation(gameObject, newPosition, Vector3.zero);
-    }
+        vetTetrahedron[18].transform.SetPositionAndRotation(new Vector3(1.244f, 1.73f, 1.022f), Quaternion.Euler(new Vector3(180, -30, -36.995f)));
+        var tetra18Transform = vetTetrahedron[18].GetTetra().transform;
+        tetra18Transform.localPosition = new Vector3(-.866025f, 0, .011f);
+        tetra18Transform.localRotation = Quaternion.Euler(new Vector3(0, 30f, 0));
 
-    private void ChangeRotationAndRotation(GameObject gameObject, Vector3 newPosition, Vector3 newRotation)
-    {
-        gameObject.transform.position = newPosition;
-        gameObject.transform.rotation = Quaternion.Euler(newRotation);
+        // OUTROS
+        vetTetrahedron[19].transform.SetPositionAndRotation(new Vector3(1.5f, 0, 0.866f), Quaternion.Euler(new Vector3(0, 180, 0)));
+        vetTetrahedron[20].transform.SetPositionAndRotation(new Vector3(.5f, 0, 0.866f), Quaternion.Euler(new Vector3(0, 180, 0)));
+        vetTetrahedron[21].transform.SetPositionAndRotation(new Vector3(1f, 0, 1.73205f), Quaternion.Euler(new Vector3(0, 180, 0)));
+
+        // Interno
+        vetTetrahedron[22].transform.SetPositionAndRotation(new Vector3(1f, .865f, 1.152f), Quaternion.Euler(new Vector3(36.793f, 0, 180)));
+        vetTetrahedron[23].transform.SetPositionAndRotation(new Vector3(1f, .86603f, 1.155f), Quaternion.Euler(new Vector3(0, -180, 0)));
     }
 }
