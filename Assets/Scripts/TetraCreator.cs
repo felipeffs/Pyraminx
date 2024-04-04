@@ -8,6 +8,7 @@ public class TetraCreator : MonoBehaviour
     Type[] _requiredComponentTypes = { typeof(MeshCollider), typeof(MeshFilter), typeof(MeshRenderer) };
     MeshRenderer _meshRenderer;
     MeshFilter _meshFilter;
+    MeshCollider _meshCollider;
     [SerializeField] private Material _baseMaterial;
 
     public bool sharedVertices = false;
@@ -115,6 +116,11 @@ public class TetraCreator : MonoBehaviour
 
         mesh.RecalculateNormals();
         mesh.RecalculateBounds();
+
+        _meshCollider = _createdTetra.GetComponent<MeshCollider>();
+        _meshCollider.sharedMesh = mesh;
+
+        _createdTetra.layer = LayerMask.NameToLayer("Tetra");
     }
 
     public GameObject GetTetra()

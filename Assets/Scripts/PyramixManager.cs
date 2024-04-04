@@ -89,5 +89,61 @@ public class PyramixManager : MonoBehaviour
         // Interno
         vetTetrahedron[22].transform.SetPositionAndRotation(new Vector3(1f, .865f, 1.152f), Quaternion.Euler(new Vector3(36.793f, 0, 180)));
         vetTetrahedron[23].transform.SetPositionAndRotation(new Vector3(1f, .86603f, 1.155f), Quaternion.Euler(new Vector3(0, -180, 0)));
+
+        CentralizeMass(vetTetrahedron[0]);
+        CentralizeMass(vetTetrahedron[2]);
+        CentralizeMass(vetTetrahedron[9]);
+        CentralizeMass(vetTetrahedron[12]);
     }
+
+    #region DESCARTE
+
+
+    private void CentralizeMass(TetraCreator tetraCreator)
+    {
+        var tetra = tetraCreator.GetTetra();
+
+        var centerOfmassTetra = CalculateCenterOfMass(tetra.transform);
+
+        tetra.transform.parent = null;
+        tetraCreator.transform.position = -centerOfmassTetra;
+        tetra.transform.parent = tetraCreator.transform;
+
+        var vaiProTetra = tetraCreator.transform.localPosition;
+        var vaiProPai = tetra.transform.localPosition;
+
+        tetraCreator.transform.localPosition = vaiProPai;
+        tetra.transform.localPosition = vaiProTetra;
+    }
+
+    Vector3 CalculateCenterOfMass(Transform obj)
+    {
+        MeshFilter meshFilter = obj.GetComponent<MeshFilter>();
+        if (meshFilter == null || meshFilter.sharedMesh == null)
+        {
+            Debug.LogWarning("MeshFilter or Mesh not found on the object.");
+            return Vector3.zero;
+        }
+
+        Vector3[] vertices = meshFilter.sharedMesh.vertices;
+        int[] triangles = meshFilter.sharedMesh.triangles;
+
+        Vector3 centerOfMass = Vector3.zero;
+
+        // Calcular o centro de massa com base nas médias dos vértices de cada face
+        for (int i = 0; i < triangles.Length; i += 3)
+        {
+            Vector3 vertex1 = vertices[triangles[i]];
+            Vector3 vertex2 = vertices[triangles[i + 1]];
+            Vector3 vertex3 = vertices[triangles[i + 2]];
+
+            Vector3 faceCenter = (vertex1 + vertex2 + vertex3) / 3f;
+            centerOfMass += faceCenter;
+        }
+
+        centerOfMass /= (triangles.Length / 3);
+
+        return centerOfMass;
+    }
+    #endregion
 }
