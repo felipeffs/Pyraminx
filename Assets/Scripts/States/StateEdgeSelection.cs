@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StateStageOne : StateBase
+public class StateEdgeSelection : StateBase
 {
     bool _toChange = false;
     public override void Enter(StateRunner stateRunner)
@@ -32,7 +32,7 @@ public class StateStageOne : StateBase
         }
 
         if (_toChange)
-            stateRunner.ChangeState(stateRunner.stateStageTwo);
+            stateRunner.ChangeState(stateRunner.stateSliceSelectio);
     }
 
     public override void Exit(StateRunner stateRunner)

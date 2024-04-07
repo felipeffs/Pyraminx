@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class StateStageThree : StateBase
+public class StateSliceRotation : StateBase
 {
     private Sensor _selectedSensor;
     public override void Enter(StateRunner stateRunner)
     {
-        _selectedSensor = stateRunner.SensorsParent.selectedSensor;
+        _selectedSensor = stateRunner.selectedSensor;
         _selectedSensor.SetParent();
     }
 
@@ -21,8 +21,7 @@ public class StateStageThree : StateBase
         }
         else if (Input.GetKeyDown(KeyCode.Backspace))
         {
-            Debug.Log("Retornou para o Estagio 2");
-            stateRunner.ChangeState(stateRunner.stateStageTwo);
+            stateRunner.ChangeState(stateRunner.stateSliceSelectio);
         }
     }
 

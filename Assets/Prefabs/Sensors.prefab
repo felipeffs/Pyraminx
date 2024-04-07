@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3751312771757260812}
   - component: {fileID: 3751312771757260815}
   - component: {fileID: 658234171106565800}
-  - component: {fileID: 3751312771757260816}
   - component: {fileID: 3751312771757260819}
   m_Layer: 0
   m_Name: Top
@@ -111,18 +110,6 @@ MonoBehaviour:
   _tetraLayerMask:
     serializedVersion: 2
     m_Bits: 512
---- !u!114 &3751312771757260816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3751312771757260818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7dbc9a0399d55e46896a763178b1cd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &3751312771757260819
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -148,7 +135,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3751312772208590174}
-  - component: {fileID: 5188533433075740012}
   m_Layer: 0
   m_Name: Sensors
   m_TagString: Untagged
@@ -171,23 +157,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5188533433075740012
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3751312772208590241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7959ddfd5651a584f9192f461313d471, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sensors:
-  - {fileID: 7219777265897127742}
-  - {fileID: 1508485699636053425}
-  - {fileID: 658234171106565800}
-  selectedSensor: {fileID: 0}
 --- !u!1 &3751312772667119415
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,7 +170,6 @@ GameObject:
   - component: {fileID: 3751312772667119410}
   - component: {fileID: 3751312772667119413}
   - component: {fileID: 7219777265897127742}
-  - component: {fileID: 3751312772667119406}
   - component: {fileID: 3751312772667119407}
   m_Layer: 0
   m_Name: Base
@@ -300,18 +268,6 @@ MonoBehaviour:
   _tetraLayerMask:
     serializedVersion: 2
     m_Bits: 512
---- !u!114 &3751312772667119406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3751312772667119415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7dbc9a0399d55e46896a763178b1cd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &3751312772667119407
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -341,7 +297,6 @@ GameObject:
   - component: {fileID: 3751312773008185691}
   - component: {fileID: 3751312773008185690}
   - component: {fileID: 1508485699636053425}
-  - component: {fileID: 3751312773008185695}
   - component: {fileID: 3751312773008185694}
   m_Layer: 0
   m_Name: Middle
@@ -440,18 +395,6 @@ MonoBehaviour:
   _tetraLayerMask:
     serializedVersion: 2
     m_Bits: 512
---- !u!114 &3751312773008185695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3751312773008185761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7dbc9a0399d55e46896a763178b1cd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &3751312773008185694
 Rigidbody:
   m_ObjectHideFlags: 0
