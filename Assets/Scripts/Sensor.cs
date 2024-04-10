@@ -51,8 +51,7 @@ public class Sensor : MonoBehaviour
         foreach (Collider collider in detectedTetras)
         {
             afaga.Add(collider.transform.parent);
-            // Faça o que quiser com o collider colidido, por exemplo:
-            Debug.Log("Objeto colidido: " + collider.name);
+            //Debug.Log("Objeto colidido: " + collider.name);
         }
         return afaga.ToArray();
     }

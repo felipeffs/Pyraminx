@@ -5,6 +5,8 @@ public class StateEdgeSelection : StateBase
     bool _toChange = false;
     public override void Enter(StateRunner stateRunner)
     {
+        stateRunner.ClearLog();
+        Debug.Log("Seleção da Ponta: 1,2,3,4");
         _toChange = false;
     }
 

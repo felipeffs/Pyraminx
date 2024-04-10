@@ -5,6 +5,8 @@ public class StateSliceRotation : StateBase
     private Sensor _selectedSensor;
     public override void Enter(StateRunner stateRunner)
     {
+        stateRunner.ClearLog();
+        Debug.Log("Girar Fatia <- Q , E -> | Retornar: Backspace");
         _selectedSensor = stateRunner.selectedSensor;
         _selectedSensor.SetParent();
     }

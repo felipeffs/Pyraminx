@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Reflection;
+using UnityEngine;
 
 public class StateRunner : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class StateRunner : MonoBehaviour
     private void Awake()
     {
         _currentState = stateStageEdgeSelection;
+        _currentState.Enter(this);
     }
 
     private void Update()
@@ -44,5 +46,13 @@ public class StateRunner : MonoBehaviour
     public void SelectBase()
     {
         selectedSensor = _sensors[0];
+    }
+
+    public void ClearLog()
+    {
+        var assembly = Assembly.GetAssembly(typeof(UnityEditor.Editor));
+        var type = assembly.GetType("UnityEditor.LogEntries");
+        var method = type.GetMethod("Clear");
+        method.Invoke(new object(), null);
     }
 }

@@ -4,6 +4,8 @@ public class StateSliceSelection : StateBase
 {
     public override void Enter(StateRunner stateRunner)
     {
+        stateRunner.ClearLog();
+        Debug.Log("Seleção da Fatia: 1 = TOPO, 2 = MEIO, 3 = BASE | Retornar: Backspace");
         stateRunner.selectedSensor = null;
     }
 
